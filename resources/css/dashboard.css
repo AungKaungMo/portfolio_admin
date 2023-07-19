@@ -1,0 +1,235 @@
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--textColorSecondary);
+}
+
+ol,
+ul {
+  padding-left: 0 !important;
+}
+
+.admindsh_container {
+  position: relative;
+  width: 100%;
+}
+
+.navigation {
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  background: var(--mainColor);
+  border-left: 10px solid var(--mainColor);
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.navigation.active {
+  width: 75px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 200%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background: var(--backgroundPrimary);
+}
+
+.navigation ul li:nth-child(1) {
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+
+.navigation ul li a,
+.navigation ul li p {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--secondMainColor);
+}
+
+.navigation ul li:hover a,
+.navigation ul li:hover p,
+.navigation ul li.hovered a,
+.navigation ul li.hovered p {
+  color: var(--mainColor);
+}
+
+.navigation ul li a .icon,
+.navigation ul li p .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+
+.navigation ul li a .icon iconify-icon,
+.navigation ul li p .icon iconify-icon {
+  font-size: 1.8em;
+}
+
+.navigation ul li a .title,
+.navigation ul li p .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 45px;
+  line-height: 55px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+/* curves outside */
+
+.navigation ul li:hover a::before,
+.navigation ul li:hover p::before,
+.navigation ul li.hovered a::before,
+.navigation ul li.hovered p::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--backgroundPrimary);
+  pointer-events: none;
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li:hover p::after,
+.navigation ul li.hovered a::after,
+.navigation ul li.hovered p::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--backgroundPrimary);
+  pointer-events: none;
+}
+
+/* main */
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: var(--white);
+  transition: 0.5s;
+}
+
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  margin-top: 0.5em;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: var(--backgroundPrimary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  cursor: pointer;
+}
+
+.owner {
+  position: relative;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: 2px solid var(--mainColor);
+}
+
+.owner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 700px) {
+  .toggle {
+    display: none;
+  }
+}
+
+/**
+GLOBAL SAVE BTN
+**/
+
+.saveBtn {
+  margin: 3em;
+  float: right;
+  margin-right: 1.5em;
+}
+
+.saveBtn button {
+  color: var(--textColorPrimary);
+  border-radius: 10px;
+  border: 2px solid var(--mainColor);
+  background-color: var(--mainColor);
+  padding: 1em;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.5s;
+}
+
+.saveBtn button iconify-icon {
+  font-size: 1.3em;
+  margin-left: 1em;
+}
+
+.saveBtn button:hover {
+  background-color: transparent;
+  color: var(--mainColor);
+}
+
+@media screen and (max-width: 430px) {
+  .saveBtn button {
+    font-size: 0.8em;
+  }
+}
